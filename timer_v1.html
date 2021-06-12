@@ -134,14 +134,21 @@
             // Check_i.innerHTML = Cal_Hour + "小時" + Cal_Minute + "分" + Cal_Second + "秒";
         }
         function startCounting(){
+            //確保value沒跑掉
+            setHour =  document.getElementById("setHour")
+            setSecond =  document.getElementById("setSecond")
+            setMinute =  document.getElementById("setMinute")
+            hour = parseInt(setHour.value)
+            second = parseInt(setSecond.value)
+            minute = parseInt(setMinute.value)
             if(hour === 0 && second === 0 && minute === 0){
                 console.log("不會執行")
             }else{
                 timer = window.setInterval("Check_Time()", 1000);
                 //將input field屬性做更改 不能更改 且可以改變樣式
-                document.getElementById("setHour").setAttribute('disabled','disabled')
-                document.getElementById("setMinute").setAttribute('disabled','disabled')
-                document.getElementById("setSecond").setAttribute('disabled','disabled')
+                setHour.setAttribute('disabled','disabled')
+                setMinute.setAttribute('disabled','disabled')
+                setSecond.setAttribute('disabled','disabled')
                 //改變button樣式讓其能夠呼叫中斷時間的方法
                 const start = document.getElementById("start")
                 const reset = document.getElementById("reset")
